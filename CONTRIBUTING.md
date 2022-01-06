@@ -2,7 +2,7 @@
 
 ## Road Map
 
-There are some outstanding models and endpoints that need to be implemented. Feel free to follow the docs and push up a pr for some of these outstanding models.
+There are some outstanding models and endpoints that need to be implemented. Feel free to follow the docs from Test Rail and push up a pr for some of these outstanding models.
 
 [Categories](https://gurock.com/testrail/docs/api/reference/)
 - Case Fields
