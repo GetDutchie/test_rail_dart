@@ -54,6 +54,7 @@ void main() {
     });
   });
 }
+```
 
 ## Styling
 
