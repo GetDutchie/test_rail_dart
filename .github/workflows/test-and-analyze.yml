@@ -1,0 +1,38 @@
+# Based on https://raw.githubusercontent.com/dart-lang/intl/master/.github/workflows/test-package.yml
+name: Test Rail Flutter - Analyze and Test
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/test-and-analyze.yml"
+
+env:
+  PUB_ENVIRONMENT: bot.github
+
+jobs:
+  analyze_and_test:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sdk: [dev, stable]
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@89f242ee29e10c53a841bfe71cc0ce7b2f065abc
+        with:
+          access_token: ${{ github.token }}
+      - uses: dart-lang/setup-dart@6a218f2413a3e78e9087f638a238f6b40893203d
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - uses: actions/checkout@v2
+
+      - run: dart pub get
+
+      - run: dart analyze --fatal-infos
+
+      - run: dart format --output=none --set-exit-if-changed .
+
+      - run: dart test
