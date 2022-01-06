@@ -2,12 +2,9 @@
 
 ## Road Map
 
-There are currently 20 categories of different endpoints that need to be implemented for us
-to be at 100% partity with the Test Rail API. With your help as a contributor we can get to 100% in no time.
+There are some outstanding models and endpoints that need to be implemented. Feel free to follow the docs and push up a pr for some of these outstanding models.
 
 [Categories](https://gurock.com/testrail/docs/api/reference/)
-- Attachments
-- Cases
 - Case Fields
 - Case Types
 - Configurations
@@ -18,8 +15,6 @@ to be at 100% partity with the Test Rail API. With your help as a contributor we
 - Reports
 - Results
 - Result Fields
-- Runs
-- Sections
 - Shared Steps
 - Statuses
 - Suites
