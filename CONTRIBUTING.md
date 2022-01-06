@@ -1,6 +1,6 @@
-## Contributing
+# Contributing
 
-# Road Map
+## Road Map
 
 There are currently 20 categories of different endpoints that need to be implemented for us
 to be at 100% partity with the Test Rail API. With your help as a contributor we can get to 100% in no time.
@@ -27,7 +27,7 @@ to be at 100% partity with the Test Rail API. With your help as a contributor we
 - Tests
 - Users
 
-## Contributing
+## Guidelines
 
 This repo is perfect for people looking to make their first contribution to open source.
 
