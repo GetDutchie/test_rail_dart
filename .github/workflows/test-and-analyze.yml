@@ -3,8 +3,6 @@ name: Test Rail Flutter - Analyze and Test
 
 on:
   pull_request:
-    paths:
-      - ".github/workflows/test-and-analyze.yml"
 
 env:
   PUB_ENVIRONMENT: bot.github
