@@ -31,7 +31,7 @@ to be at 100% partity with the Test Rail API. With your help as a contributor we
 
 This repo is perfect for people looking to make their first contribution to open source.
 
-You can checkout this guide in order to learn how to make [contributions](https://github.com/firstcontributions/first-contributions)
+You can checkout this guide in order to learn how to [fork our branch](https://github.com/firstcontributions/first-contributions) and make your first contribution.
 
 You can use the app [Quick Type](https://app.quicktype.io/) to autogenerate the expected responses for the models from the above endpoints then you can clean it up to follow our style guide below.
 
