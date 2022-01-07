@@ -1,7 +1,8 @@
+![Dutchie Logo](./doc/logo.svg)
 
 # Test Rail Flutter
 
-This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter.
+This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter. It enables a user to start, report case pass/fail, and close your test runs from a Dart interface.
 
 ## Getting Started
 
@@ -58,3 +59,8 @@ final testRun = await TestRun.get(1);
 
 final testSection = await TestSection.get(1);
 ```
+## About Dutchie
+
+We’re not just building the future of shopping for cannabis, we’re building a culture of innovation, customer care, and challenge to the status quo.
+
+Inspired? Join a our team of [Dart and Flutter developers](https://dutchie.com/careers) today
