@@ -6,7 +6,7 @@ We’re not just building the future of shopping for cannabis, we’re building 
 
 # Test Rail Flutter
 
-This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter.
+This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter. We are currently using this in our mobile application to create automated test runs for our e2e tests and upload the results to slack.
 
 ## Getting Started
 
