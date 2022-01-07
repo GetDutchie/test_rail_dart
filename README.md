@@ -1,3 +1,8 @@
+![Dutchie Logo](./lib/assets/logo.png)
+
+# Where innovation meets dedication
+
+We’re not just building the future of shopping for cannabis, we’re building a culture of innovation, customer care, and challenge to the status quo.
 
 # Test Rail Flutter
 
@@ -58,3 +63,5 @@ final testRun = await TestRun.get(1);
 
 final testSection = await TestSection.get(1);
 ```
+
+Checkout our [careers](https://dutchie.com/careers) here
