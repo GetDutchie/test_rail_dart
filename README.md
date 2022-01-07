@@ -64,4 +64,4 @@ final testRun = await TestRun.get(1);
 final testSection = await TestSection.get(1);
 ```
 
-Checkout our [careers](https://dutchie.com/careers) here
+Inspired? Join a our team of [Dart and Flutter developers](https://dutchie.com/careers) today
