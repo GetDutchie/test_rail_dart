@@ -1,4 +1,4 @@
-![Dutchie Logo](https://dutchie.com/favicons/default/apple-touch-icon.png)
+![Dutchie Logo](./doc/logo.svg)
 
 # Where innovation meets dedication
 
