@@ -1,6 +1,6 @@
 ![Dutchie Logo](./doc/logo.svg)
 
-# Where innovation meets dedication
+## About Dutchie
 
 We’re not just building the future of shopping for cannabis, we’re building a culture of innovation, customer care, and challenge to the status quo.
 
