@@ -1,26 +1,8 @@
 # Contributing
 
-## Road Map
+## Roadmap
 
-There are some outstanding models and endpoints that need to be implemented. Feel free to follow the docs from Test Rail and push up a pr for some of these outstanding models.
-
-[Categories](https://gurock.com/testrail/docs/api/reference/)
-- Case Fields
-- Case Types
-- Configurations
-- Milestones
-- Plans
-- Priorities
-- Projects
-- Reports
-- Results
-- Result Fields
-- Shared Steps
-- Statuses
-- Suites
-- Template
-- Tests
-- Users
+There are some [outstanding endpoints](https://gurock.com/testrail/docs/api/reference/) that are outstanding. Feel free to look at the Test Rail docs and create a pr for the new models.
 
 ## Guidelines
 
