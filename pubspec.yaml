@@ -1,5 +1,8 @@
 name: test_rail
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+description: This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter
+homepage: https://github.com/GetDutchie/test_rail_flutter
+issue_tracker: https://github.com/GetDutchie/test_rail_flutter/issues
+repository: https://github.com/GetDutchie/test_rail_flutter
 
 version: 1.0.0+1
 
