@@ -1,4 +1,4 @@
-![Dutchie Logo](./doc/logo.svg)
+![Dutchie Logo](https://dutchie.com/favicons/default/apple-touch-icon.png)
 
 # Test Rail Dart
 
