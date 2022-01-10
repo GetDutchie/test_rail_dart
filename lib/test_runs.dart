@@ -16,8 +16,8 @@ class TestRuns {
   });
 
   factory TestRuns.fromJson(Map<String, dynamic> json) {
-
-    final runs = json['runs']?.map((r) => TestRun.fromJson(r)).toList().cast<TestRun>();
+    final runs =
+        json['runs']?.map((r) => TestRun.fromJson(r)).toList().cast<TestRun>();
 
     return TestRuns(
       limit: json['limit'],
@@ -29,12 +29,12 @@ class TestRuns {
   }
 
   Map<String, dynamic> get asJson => {
-    'limit': limit,
-    '_links': links?.asJson,
-    'offset': offset,
-    'runs': runs?.map((e) => e.asJson).toList(),
-    'size': size,
-  };
+        'limit': limit,
+        '_links': links?.asJson,
+        'offset': offset,
+        'runs': runs?.map((e) => e.asJson).toList(),
+        'size': size,
+      };
 }
 
 class Links {
