@@ -2,7 +2,7 @@
 
 # Test Rail Dart
 
-This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter. It enables a user to start, report case pass/fail, and close your test runs from a Dart interface.
+This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Dart. It enables a user to start, report case pass/fail, and close your test runs from a Dart interface.
 
 ## Getting Started
 
