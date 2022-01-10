@@ -1,7 +1,8 @@
-name: test_rail
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
-
-version: 1.0.0+1
+name: test_rail_dart
+description: This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in dart
+homepage: https://github.com/GetDutchie/test_rail_dart
+issue_tracker: https://github.com/GetDutchie/test_rail_dart/issues
+repository: https://github.com/GetDutchie/test_rail_dart
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

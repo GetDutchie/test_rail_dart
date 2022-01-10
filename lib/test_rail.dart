@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:test_rail/src/test_rail_http_client.dart';
+import 'package:test_rail_dart/src/test_rail_http_client.dart';
 
 class TestRail {
   final TestRailHttpClient client;

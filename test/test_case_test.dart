@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:test_rail/test_case.dart';
+import 'package:test_rail_dart/test_case.dart';
 import '__helpers__.dart';
 import 'data/sample_test_case.dart';
 
