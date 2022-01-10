@@ -28,7 +28,7 @@ void main() {
       expect(result.asJson, sampleTestRun);
     });
 
-    test('.getRuns', () async {
+    test('.getAll', () async {
       stubTestRailConfig(sampleTestRuns);
       final result = await TestRun.getAll(
         projectId: 1,

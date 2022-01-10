@@ -2,7 +2,7 @@ import 'package:test_rail/test_run.dart';
 
 class TestRuns {
   final int? limit;
-  final Links? links;
+  final _Links? links;
   final int? offset;
   final List<TestRun>? runs;
   final int? size;
@@ -21,7 +21,7 @@ class TestRuns {
 
     return TestRuns(
       limit: json['limit'],
-      links: Links.fromJson(json['_links']),
+      links: _Links.fromJson(json['_links']),
       offset: json['offset'],
       runs: runs,
       size: json['size'],
@@ -37,17 +37,17 @@ class TestRuns {
       };
 }
 
-class Links {
+class _Links {
   final String? next;
   final String? prev;
 
-  Links({
+  _Links({
     this.next,
     this.prev,
   });
 
-  factory Links.fromJson(Map<String, dynamic> json) {
-    return Links(
+  factory _Links.fromJson(Map<String, dynamic> json) {
+    return _Links(
       next: json['next'],
       prev: json['prev'],
     );
