@@ -1,4 +1,4 @@
-name: test_rail
+name: test_rail_dart
 description: This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Flutter
 homepage: https://github.com/GetDutchie/test_rail_flutter
 issue_tracker: https://github.com/GetDutchie/test_rail_flutter/issues

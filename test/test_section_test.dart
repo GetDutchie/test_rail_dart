@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:test_rail/test_section.dart';
+import 'package:test_rail_dart/test_section.dart';
 import '__helpers__.dart';
 import 'data/sample_test_section.dart';
 

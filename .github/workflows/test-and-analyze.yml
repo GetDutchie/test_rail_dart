@@ -1,5 +1,5 @@
 # Based on https://raw.githubusercontent.com/dart-lang/intl/master/.github/workflows/test-package.yml
-name: Test Rail Flutter - Analyze and Test
+name: Test Rail Dart - Analyze and Test
 
 on:
   pull_request:

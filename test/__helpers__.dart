@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:test_rail/test_rail.dart';
+import 'package:test_rail_dart/test_rail.dart';
 import 'package:http/testing.dart' as testing;
 
 TestRail stubTestRailConfig(Map<String, dynamic> sample) {
