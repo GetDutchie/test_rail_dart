@@ -14,6 +14,9 @@ void main(List<String> args) async {
   // replace with your own caseId
   final testCase = await TestCase.get(142864);
 
+  // replace with your own projectId, extra parameters available in method
+  final testRuns = await TestRun.getAll(projectId: 1125, limit: 10);
+
   // replace with your own projectId
   final testRun = await TestRun.get(1125);
 
