@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import 'package:test_rail/test_run.dart';
-import 'package:test_rail/test_section.dart';
+import 'package:test_rail_dart/test_run.dart';
+import 'package:test_rail_dart/test_section.dart';
 import '__helpers__.dart';
 import 'data/sample_test_result.dart';
 import 'data/sample_test_run.dart';

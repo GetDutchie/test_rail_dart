@@ -1,6 +1,6 @@
-import 'package:test_rail/test_attachment.dart';
-import 'package:test_rail/src/test_rail_http_client.dart';
-import 'package:test_rail/test_rail.dart';
+import 'package:test_rail_dart/test_attachment.dart';
+import 'package:test_rail_dart/src/test_rail_http_client.dart';
+import 'package:test_rail_dart/test_rail.dart';
 
 class TestResult {
   final int? assignedToId;

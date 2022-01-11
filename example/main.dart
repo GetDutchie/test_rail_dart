@@ -1,8 +1,8 @@
 // ignore_for_file: unused_local_variable
-import 'package:test_rail/test_rail.dart';
-import 'package:test_rail/test_case.dart';
-import 'package:test_rail/test_run.dart';
-import 'package:test_rail/test_section.dart';
+import 'package:test_rail_dart/test_rail.dart';
+import 'package:test_rail_dart/test_case.dart';
+import 'package:test_rail_dart/test_run.dart';
+import 'package:test_rail_dart/test_section.dart';
 
 void main(List<String> args) async {
   TestRail.configure(
