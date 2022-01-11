@@ -4,6 +4,7 @@ import 'package:test_rail_dart/test_section.dart';
 import '__helpers__.dart';
 import 'data/sample_test_result.dart';
 import 'data/sample_test_run.dart';
+import 'data/sample_test_runs.dart';
 import 'data/sample_test_section.dart';
 
 void main() {
@@ -25,6 +26,17 @@ void main() {
       );
 
       expect(result.asJson, sampleTestRun);
+    });
+
+    test('.getAll', () async {
+      stubTestRailConfig(sampleTestRuns);
+      final result = await TestRun.getAll(
+        projectId: 1,
+        offset: 2,
+        limit: 2,
+      );
+
+      expect(result.asJson, sampleTestRuns);
     });
 
     test('#update', () async {

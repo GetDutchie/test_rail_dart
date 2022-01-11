@@ -1,6 +1,7 @@
 import 'package:test_rail_dart/test_result.dart';
 import 'package:test_rail_dart/src/test_rail_http_client.dart';
 import 'package:test_rail_dart/test_rail.dart';
+import 'package:test_rail_dart/test_runs.dart';
 
 class TestRun {
   final int? assignedtoId;
@@ -144,21 +145,6 @@ class TestRun {
     return TestRun.fromJson(response);
   }
 
-  Future<TestRun> update({
-    required Iterable<int> caseIds,
-    bool includeAll = false,
-  }) async {
-    final response = await TestRail.instance.client.request(
-      '/update_run/$id',
-      RequestMethod.post,
-      params: {
-        'case_ids': caseIds,
-        'include_all': includeAll,
-      },
-    );
-    return TestRun.fromJson(response);
-  }
-
   static Future<TestRun> create({
     Iterable<int>? caseIds,
     String? description,
@@ -182,6 +168,56 @@ class TestRun {
   static Future<TestRun> get(int runId) async {
     final response = await TestRail.instance.client
         .request('/get_run/$runId', RequestMethod.get);
+    return TestRun.fromJson(response);
+  }
+
+  static Future<TestRuns> getAll({
+    required int projectId,
+    DateTime? createdAfter,
+    DateTime? createdBefore,
+    Iterable<int>? createdBy,
+    bool? isCompleted,
+    int? limit,
+    int? offset,
+    Iterable<int>? milestoneId,
+    String? refsFilter,
+    Iterable<int>? suiteId,
+  }) async {
+    final queryParameters = <String, dynamic>{
+      'created_after': createdAfter?.millisecondsSinceEpoch,
+      'created_before': createdBefore?.millisecondsSinceEpoch,
+      'created_by': createdBy,
+      'is_completed': isCompleted,
+      'limit': limit,
+      'offset': offset,
+      'milestone_id': milestoneId,
+      'refs_filter': refsFilter,
+      'suite_id': suiteId,
+    };
+
+    queryParameters.removeWhere((_, dynamic value) => value == null);
+
+    final response = await TestRail.instance.client.request(
+      '/get_runs/$projectId',
+      RequestMethod.get,
+      queryParameters: queryParameters,
+    );
+
+    return TestRuns.fromJson(response);
+  }
+
+  Future<TestRun> update({
+    required Iterable<int> caseIds,
+    bool includeAll = false,
+  }) async {
+    final response = await TestRail.instance.client.request(
+      '/update_run/$id',
+      RequestMethod.post,
+      params: {
+        'case_ids': caseIds,
+        'include_all': includeAll,
+      },
+    );
     return TestRun.fromJson(response);
   }
 

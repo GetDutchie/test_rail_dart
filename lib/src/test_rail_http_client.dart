@@ -12,7 +12,8 @@ class TestRailHttpClient {
   final String serverDomain;
   final String username;
 
-  static const String _apiVersion = '/index.php?/api/v2';
+  static const String _urlExtension = '/index.php?';
+  static const String _apiVersion = '/api/v2';
 
   TestRailHttpClient({
     http.Client? client,
@@ -24,11 +25,12 @@ class TestRailHttpClient {
   Future<Map<String, dynamic>> request(
     String endpoint,
     RequestMethod method, {
+    Map<String, dynamic>? queryParameters,
     // Include `filePath` for `RequestMethod.postMultipart` requests
     String? filePath,
     Map<String, dynamic> params = const {},
   }) async {
-    final url = '$serverDomain.$_apiVersion/$endpoint';
+    final url = '$serverDomain.$_urlExtension$_apiVersion/$endpoint';
     final authorization =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
     final header = {'authorization': authorization};
@@ -37,7 +39,25 @@ class TestRailHttpClient {
 
     switch (method) {
       case RequestMethod.get:
-        response = await client.get(Uri.parse(url), headers: header);
+        final protocol = serverDomain.contains('https://') ? 'https' : 'http';
+
+        /// Extract only domain
+        final simpleDomain = serverDomain.replaceAll(protocol, '').substring(3);
+
+        Map<String, String> filterParams = {'$_apiVersion$endpoint': ''};
+
+        queryParameters?.forEach((key, value) {
+          filterParams.putIfAbsent(key, () => value.toString());
+        });
+
+        final requestUrl = Uri(
+          scheme: protocol,
+          host: simpleDomain,
+          path: 'index.php',
+          queryParameters: filterParams,
+        );
+
+        response = await client.get(requestUrl, headers: header);
         break;
       case RequestMethod.post:
         response = await client.post(Uri.parse(url),
