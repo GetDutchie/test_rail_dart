@@ -1,7 +1,7 @@
 import 'package:test_rail_dart/test_result.dart';
 import 'package:test_rail_dart/src/test_rail_http_client.dart';
 import 'package:test_rail_dart/test_rail.dart';
-import 'package:test_rail/test_runs.dart';
+import 'package:test_rail_dart/test_runs.dart';
 
 class TestRun {
   final int? assignedtoId;

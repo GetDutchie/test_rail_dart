@@ -1,4 +1,5 @@
-import 'package:test_rail/test_run.dart';
+
+import 'package:test_rail_dart/test_run.dart';
 
 class TestRuns {
   final int? limit;
