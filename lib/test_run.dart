@@ -130,7 +130,7 @@ class TestRun {
       '/add_result_for_case/$id/$caseId',
       RequestMethod.post,
       params: {
-        'case_id': caseId,
+        'status_id': statusId,
         if (comment != null) 'comment': comment,
         if (elapsed != null) 'elapsed': elapsed,
       },
