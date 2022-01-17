@@ -60,8 +60,9 @@ class TestRailHttpClient {
         response = await client.get(requestUrl, headers: header);
         break;
       case RequestMethod.post:
+        final headers = {...header, 'Content-Type': 'application/json'};
         response = await client.post(Uri.parse(url),
-            headers: header, body: jsonEncode(params));
+            headers: headers, body: jsonEncode(params));
         break;
       case RequestMethod.postMultipart:
         final headers = {...header, 'Content-Type': 'multipart/form-data'};
