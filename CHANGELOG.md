@@ -1,3 +1,6 @@
+## 0.0.4
+Update broken plan json data
+
 ## 0.0.3
 
 ### Fixed
