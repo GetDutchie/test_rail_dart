@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 import 'package:test_rail_dart/test_rail.dart';
 import 'package:test_rail_dart/test_case.dart';
+import 'package:test_rail_dart/test_result.dart';
 import 'package:test_rail_dart/test_run.dart';
 import 'package:test_rail_dart/test_section.dart';
 
@@ -43,4 +44,20 @@ void main(List<String> args) async {
 
   // Replace with attachment path
   await testCaseResult.addAttachment('<attachment_path>');
+
+  final caseResults = await TestResult.getCaseResults(
+    runId: 1833,
+    // Case ID is from TestCases, not TestRun
+    caseId: 184234,
+  );
+
+  final runResults = await TestResult.getRunResults(
+    runId: 1818,
+    statusId: [5, 1],
+  );
+
+  final testResults = await TestResult.getTestResults(
+    // Test ID from particular TestRun
+    testId: 1868150,
+  );
 }

@@ -1,9 +1,13 @@
 import 'package:test/test.dart';
+import 'package:test_rail_dart/test_result.dart';
 import 'package:test_rail_dart/test_run.dart';
 import 'package:test_rail_dart/test_section.dart';
 import '__helpers__.dart';
+import 'data/sample_test_case_result.dart';
 import 'data/sample_test_result.dart';
+import 'data/sample_test_results_test_result.dart';
 import 'data/sample_test_run.dart';
+import 'data/sample_test_run_results.dart';
 import 'data/sample_test_runs.dart';
 import 'data/sample_test_section.dart';
 
@@ -78,6 +82,35 @@ void main() {
         statusId: 5,
       );
       expect(result.asJson, sampleForTestResult);
+    });
+
+    test('#getResultsForTest', () async {
+      stubTestRailConfig(sampleForTestResultsTestResult);
+      final runResults = await TestResult.getTestResults(
+        testId: 1868150,
+      );
+
+      expect(runResults.asJson, sampleForTestResultsTestResult);
+    });
+
+    test('#getResultsForRun', () async {
+      stubTestRailConfig(sampleForTestRunResults);
+      final runResults = await TestResult.getRunResults(
+        runId: 1818,
+        statusId: [5, 1],
+      );
+
+      expect(runResults.asJson, sampleForTestRunResults);
+    });
+
+    test('#getResultsForTestCaseFromTestRun', () async {
+      stubTestRailConfig(sampleForTestCaseResult);
+      final runResults = await TestResult.getCaseResults(
+        runId: 1818,
+        caseId: 184234,
+      );
+
+      expect(runResults.asJson, sampleForTestCaseResult);
     });
   });
 }

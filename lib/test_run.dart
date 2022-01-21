@@ -186,13 +186,13 @@ class TestRun {
     final queryParameters = <String, dynamic>{
       'created_after': createdAfter?.millisecondsSinceEpoch,
       'created_before': createdBefore?.millisecondsSinceEpoch,
-      'created_by': createdBy,
+      'created_by': createdBy?.join(','),
       'is_completed': isCompleted,
       'limit': limit,
       'offset': offset,
-      'milestone_id': milestoneId,
+      'milestone_id': milestoneId?.join(','),
       'refs_filter': refsFilter,
-      'suite_id': suiteId,
+      'suite_id': suiteId?.join(','),
     };
 
     queryParameters.removeWhere((_, dynamic value) => value == null);

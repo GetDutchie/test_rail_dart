@@ -1,30 +1,32 @@
 import 'package:test_rail_dart/shared_links.dart';
-import 'package:test_rail_dart/test_run.dart';
+import 'package:test_rail_dart/test_result.dart';
 
-class TestRuns {
+class TestResults {
   final int? limit;
   final Links? links;
   final int? offset;
-  final List<TestRun>? runs;
+  final List<TestResult>? results;
   final int? size;
 
-  TestRuns({
+  TestResults({
     this.limit,
     this.links,
     this.offset,
-    this.runs,
+    this.results,
     this.size,
   });
 
-  factory TestRuns.fromJson(Map<String, dynamic> json) {
-    final runs =
-        json['runs']?.map((r) => TestRun.fromJson(r)).toList().cast<TestRun>();
+  factory TestResults.fromJson(Map<String, dynamic> json) {
+    final results = json['results']
+        ?.map((r) => TestResult.fromJson(r))
+        .toList()
+        .cast<TestResult>();
 
-    return TestRuns(
+    return TestResults(
       limit: json['limit'],
       links: Links.fromJson(json['_links']),
       offset: json['offset'],
-      runs: runs,
+      results: results,
       size: json['size'],
     );
   }
@@ -33,7 +35,7 @@ class TestRuns {
         'limit': limit,
         '_links': links?.asJson,
         'offset': offset,
-        'runs': runs?.map((e) => e.asJson).toList(),
+        'results': results?.map((e) => e.asJson).toList(),
         'size': size,
       };
 }
