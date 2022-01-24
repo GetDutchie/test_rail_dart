@@ -64,19 +64,19 @@ Completed or ongoing test run results can be retrieved:
 
 ```dart
 final caseResults = await TestResult.getCaseResults(
-runId: 1833,
-// Case ID is from TestCases, not TestRun
-caseId: 184234,
+  runId: 1833,
+  // Case ID is from TestCases, not TestRun
+  caseId: 184234,
 );
 
 final runResults = await TestResult.getRunResults(
-runId: 1818,
-statusId: [5, 1],
+  runId: 1818,
+  statusId: [5, 1],
 );
 
 final testResults = await TestResult.getTestResults(
-// Test ID from particular TestRun
-testId: 1868150,
+  // Test ID from particular TestRun
+  testId: 1868150,
 );
 ```
 

@@ -86,7 +86,7 @@ void main() {
 
     test('#getResultsForTest', () async {
       stubTestRailConfig(sampleForTestResultsTestResult);
-      final runResults = await TestResult.getTestResults(
+      final runResults = await TestResult.getTestRunSingleTestResults(
         testId: 1868150,
       );
 
@@ -96,7 +96,7 @@ void main() {
     test('#getResultsForRun', () async {
       stubTestRailConfig(sampleForTestRunResults);
       final runResults = await TestResult.getRunResults(
-        runId: 1818,
+        1818,
         statusId: [5, 1],
       );
 
@@ -106,8 +106,8 @@ void main() {
     test('#getResultsForTestCaseFromTestRun', () async {
       stubTestRailConfig(sampleForTestCaseResult);
       final runResults = await TestResult.getCaseResults(
+        184234,
         runId: 1818,
-        caseId: 184234,
       );
 
       expect(runResults.asJson, sampleForTestCaseResult);

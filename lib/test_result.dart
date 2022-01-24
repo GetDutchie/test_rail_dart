@@ -76,7 +76,7 @@ class TestResult {
     return TestAttachment.fromJson(response);
   }
 
-  static Future<TestResults> getTestResults({
+  static Future<TestResults> getTestRunSingleTestResults({
     required int testId,
     int? limit,
     int? offset,
@@ -94,9 +94,9 @@ class TestResult {
     );
   }
 
-  static Future<TestResults> getCaseResults({
+  static Future<TestResults> getCaseResults(
+    int caseId, {
     required int runId,
-    required int caseId,
     String? defectsFilter,
     int? limit,
     int? offset,
@@ -117,8 +117,8 @@ class TestResult {
     );
   }
 
-  static Future<TestResults> getRunResults({
-    required int runId,
+  static Future<TestResults> getRunResults(
+    int runId, {
     DateTime? createdAfter,
     DateTime? createdBefore,
     Iterable<int>? createdBy,
@@ -147,9 +147,9 @@ class TestResult {
 
   static Future<TestResults> _performRequest({
     required String requestUrl,
-    dynamic queryParameters,
+    Map<String, dynamic>? queryParameters,
   }) async {
-    queryParameters.removeWhere((_, dynamic value) => value == null);
+    queryParameters?.removeWhere((_, dynamic value) => value == null);
 
     final response = await TestRail.instance.client.request(
         requestUrl, RequestMethod.get,
