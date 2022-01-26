@@ -59,8 +59,29 @@ final testRun = await TestRun.get(1);
 
 final testSection = await TestSection.get(1);
 ```
+
+Completed or ongoing test run results can be retrieved:
+
+```dart
+final caseResults = await TestResult.getCaseResults(
+  // Case ID is from TestCases, not TestRun
+  184234,
+  runId: 1833,
+);
+
+final runResults = await TestResult.getRunResults(
+  1818,
+  statusId: [5, 1],
+);
+
+final testResults = await TestResult.getTestResults(
+  // Test ID from particular TestRun
+  1868150,
+);
+```
+
 ## About Dutchie
 
 We’re not just building the future of shopping for cannabis, we’re building a culture of innovation, customer care, and challenge to the status quo.
 
-Inspired? Join a our team of [Dart and Flutter developers](https://dutchie.com/careers) today
+Inspired? Join our team of [Dart and Flutter developers](https://dutchie.com/careers) today

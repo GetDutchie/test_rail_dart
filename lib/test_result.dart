@@ -1,6 +1,7 @@
 import 'package:test_rail_dart/test_attachment.dart';
 import 'package:test_rail_dart/src/test_rail_http_client.dart';
 import 'package:test_rail_dart/test_rail.dart';
+import 'package:test_rail_dart/test_results.dart';
 
 class TestResult {
   final int? assignedToId;
@@ -73,6 +74,88 @@ class TestResult {
     final response = await TestRail.instance.client
         .request(url, RequestMethod.postMultipart, params: {'filePath': path});
     return TestAttachment.fromJson(response);
+  }
+
+  static Future<TestResults> getTestResults(
+    int testId, {
+    int? limit,
+    int? offset,
+  }) async {
+    final url = '/get_results/$testId';
+
+    final queryParameters = <String, dynamic>{
+      'limit': limit,
+      'offset': offset,
+    };
+
+    return _performRequest(
+      requestUrl: url,
+      queryParameters: queryParameters,
+    );
+  }
+
+  static Future<TestResults> getCaseResults(
+    int caseId, {
+    required int runId,
+    String? defectsFilter,
+    int? limit,
+    int? offset,
+    Iterable<int>? statusId,
+  }) async {
+    final url = '/get_results_for_case/$runId/$caseId';
+
+    final queryParameters = <String, dynamic>{
+      'defects_filter': defectsFilter,
+      'limit': limit,
+      'offset': offset,
+      'status_id': statusId?.join(',')
+    };
+
+    return _performRequest(
+      requestUrl: url,
+      queryParameters: queryParameters,
+    );
+  }
+
+  static Future<TestResults> getRunResults(
+    int runId, {
+    DateTime? createdAfter,
+    DateTime? createdBefore,
+    Iterable<int>? createdBy,
+    String? defectsFilter,
+    int? limit,
+    int? offset,
+    Iterable<int>? statusId,
+  }) async {
+    final url = '/get_results_for_run/$runId';
+
+    final queryParameters = <String, dynamic>{
+      'created_after': createdAfter?.millisecondsSinceEpoch,
+      'created_before': createdBefore?.millisecondsSinceEpoch,
+      'created_by': createdBy,
+      'defects_filter': defectsFilter,
+      'limit': limit,
+      'offset': offset,
+      'status_id': statusId?.join(',')
+    };
+
+    return _performRequest(
+      requestUrl: url,
+      queryParameters: queryParameters,
+    );
+  }
+
+  static Future<TestResults> _performRequest({
+    required String requestUrl,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    queryParameters?.removeWhere((_, dynamic value) => value == null);
+
+    final response = await TestRail.instance.client.request(
+        requestUrl, RequestMethod.get,
+        queryParameters: queryParameters);
+
+    return TestResults.fromJson(response);
   }
 
   Map<String, dynamic> get asJson => {
