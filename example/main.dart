@@ -56,8 +56,8 @@ void main(List<String> args) async {
     statusId: [5, 1],
   );
 
-  final testResults = await TestResult.getTestRunSingleTestResults(
+  final testResults = await TestResult.getTestResults(
     // Test ID from particular TestRun
-    testId: 1868150,
+    1868150,
   );
 }

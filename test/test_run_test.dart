@@ -86,8 +86,8 @@ void main() {
 
     test('#getResultsForTest', () async {
       stubTestRailConfig(sampleForTestResultsTestResult);
-      final runResults = await TestResult.getTestRunSingleTestResults(
-        testId: 1868150,
+      final runResults = await TestResult.getTestResults(
+        1868150,
       );
 
       expect(runResults.asJson, sampleForTestResultsTestResult);

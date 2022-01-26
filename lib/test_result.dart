@@ -76,8 +76,8 @@ class TestResult {
     return TestAttachment.fromJson(response);
   }
 
-  static Future<TestResults> getTestRunSingleTestResults({
-    required int testId,
+  static Future<TestResults> getTestResults(
+    int testId, {
     int? limit,
     int? offset,
   }) async {
