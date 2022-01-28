@@ -56,7 +56,7 @@ class TestCase {
     }
 
     Map<String, dynamic> customAttributes = {};
-    var customStepsSeparated;
+    var customStepsSeparated = [];
 
     for (final element in json.entries) {
       if (element.key.contains("custom_")) {
