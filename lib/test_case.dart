@@ -76,6 +76,7 @@ class TestCase {
     return TestCase(
       createdBy: json['created_by'],
       createdOn: createdOn,
+      customAttributes: customAttributes['custom_attributes'],
       displayOrder: json['display_order'],
       estimate: json['estimate'],
       estimateForecast: json['estimate_forecast'],
@@ -91,29 +92,28 @@ class TestCase {
       typeId: json['type_id'],
       updatedBy: json['updated_by'],
       updatedOn: updatedOn,
-      customAttributes: customAttributes['custom_attributes'],
     );
   }
 
   static Future<TestCase> create(
     int sectionId, {
+    Map<String, dynamic>? customValues,
+    String? estimate,
+    int? milestoneId,
+    int? priorityId,
+    String? refs,
     required String title,
     int? templateId,
     int? typeId,
-    int? priorityId,
-    String? estimate,
-    int? milestoneId,
-    String? refs,
-    Map<String, dynamic>? customValues,
   }) async {
     final parametersMap = {
-      'title': title,
-      if (templateId != null) 'template_id': templateId,
-      if (typeId != null) 'type_id': typeId,
-      if (priorityId != null) 'priority_id': priorityId,
       if (estimate != null) 'estimate': estimate,
       if (milestoneId != null) 'milestone_id': milestoneId,
+      if (priorityId != null) 'priority_id': priorityId,
       if (refs != null) 'refs': refs,
+      if (templateId != null) 'template_id': templateId,
+      'title': title,
+      if (typeId != null) 'type_id': typeId,
     };
 
     customValues?.forEach((key, value) {
