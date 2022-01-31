@@ -4,7 +4,7 @@ import '__helpers__.dart';
 import 'data/sample_test_case.dart';
 
 void main() {
-  group('TestSection', () {
+  group('TestCase', () {
     test('#create', () async {
       stubTestRailConfig(sampleForNewTestCase);
       final result = await TestCase.create(5598, title: 'Case #2');

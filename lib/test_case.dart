@@ -25,6 +25,7 @@ class TestCase {
   TestCase({
     this.createdBy,
     this.createdOn,
+    this.customAttributes,
     this.displayOrder,
     this.estimate,
     this.estimateForecast,
@@ -40,7 +41,6 @@ class TestCase {
     this.typeId,
     this.updatedBy,
     this.updatedOn,
-    this.customAttributes,
   });
 
   factory TestCase.fromJson(Map<String, dynamic> json) {
