@@ -15,6 +15,18 @@ void main(List<String> args) async {
   // replace with your own caseId
   final testCase = await TestCase.get(142864);
 
+  final createdTestCase = await TestCase.create(
+    // replace with your own sectionId
+    1,
+    title: 'Test case from API',
+    customValues: <String, dynamic>{
+      // Custom fields start with "custom_" prefix
+      'custom_feedback': 'This case should be tested last',
+    },
+  );
+
+  final testCases = await TestCase.getAll(9, limit: 1);
+
   // replace with your own projectId, extra parameters available in method
   final testRuns = await TestRun.getAll(projectId: 1125, limit: 10);
 

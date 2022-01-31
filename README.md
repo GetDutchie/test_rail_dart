@@ -2,7 +2,7 @@
 
 # Test Rail Dart
 
-This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in Dart. It enables a user to start, report case pass/fail, and close your test runs from a Dart interface.
+This package is a thin wrapper around the TestRail API that will allow for automated test reporting in Dart. It enables a user to start, report case pass/fail, and close your test runs from a Dart interface.
 
 ## Getting Started
 
@@ -18,6 +18,20 @@ TestRail.config(
 ```
 
 ## Usage
+
+### Create Test case
+```dart
+/// Create new test case in section
+final createdTestCase = await TestCase.create(
+  // Replace with your own sectionId
+  1,
+  title: 'Test case from API',
+  customValues: <String, dynamic>{
+    // Custom fields start with "custom_" prefix
+    'custom_feedback': 'This case should be tested last',
+  },
+);
+```
 
 ### Create or Update Runs
 
@@ -54,6 +68,8 @@ Historical runs, cases, and sections can be retrieved:
 
 ```dart
 final testCase = await TestCase.get(1);
+
+final testCases = await TestCase.getAll(1);
 
 final testRun = await TestRun.get(1);
 
