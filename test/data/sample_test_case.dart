@@ -50,10 +50,72 @@ final sampleForNewTestCase = {
   'custom_attributes': {
     'custom_automation_type': null,
     'custom_expected': null,
-    "custom_steps_separated": [
-      {"content": "Step 1", "expected": "Expected Result 1"},
-      {"content": "Step 2", "expected": "Expected Result 2"},
-      {"shared_step_id": 3},
+    'custom_steps_separated': [
+      {'content': 'Step 1', 'expected': 'Expected Result 1'},
+      {'content': 'Step 2', 'expected': 'Expected Result 2'},
+      {'shared_step_id': 3},
     ]
   }
+};
+
+final sampleForTestCaseHistory = {
+  'offset': 0,
+  'limit': 250,
+  'size': 2,
+  '_links': {'next': null, 'prev': null},
+  'history': [
+    {
+      'id': 19870,
+      'type_id': 6,
+      'created_on': 1643711498,
+      'user_id': 30,
+      'changes': [
+        {
+          'type_id': 6,
+          'old_text': null,
+          'new_text': null,
+          'label': 'Preconditions',
+          'options': {
+            'is_required': false,
+            'default_value': '',
+            'format': 'markdown',
+            'rows': '7'
+          },
+          'field': 'custom_preconds',
+          'old_value': null,
+          'new_value': 'Test case preconditions'
+        }
+      ]
+    },
+    {
+      'id': 19871,
+      'type_id': 6,
+      'created_on': 1643711560,
+      'user_id': 30,
+      'changes': [
+        {
+          'type_id': 1,
+          'old_text': 'Other',
+          'new_text': 'Compatibility',
+          'field': 'type_id',
+          'old_value': 7,
+          'new_value': 4
+        },
+        {
+          'type_id': 1,
+          'old_text': null,
+          'new_text': 'E2E',
+          'label': 'Automation Type',
+          'options': {
+            'is_required': false,
+            'default_value': '0',
+            'items': '0, None\n1, E2E'
+          },
+          'field': 'custom_automation_type',
+          'old_value': 0,
+          'new_value': 1
+        }
+      ]
+    }
+  ]
 };
