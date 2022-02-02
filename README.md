@@ -74,6 +74,8 @@ final testCases = await TestCase.getAll(1);
 final testRun = await TestRun.get(1);
 
 final testSection = await TestSection.get(1);
+
+final testCaseHistory = await TestCaseHistory.get(1);
 ```
 
 Completed or ongoing test run results can be retrieved:

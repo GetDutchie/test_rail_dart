@@ -68,9 +68,7 @@ class _History {
   });
 
   factory _History.fromJson(Map<String, dynamic> json) {
-    DateTime? createdOn;
-
-    createdOn = DateTime.fromMillisecondsSinceEpoch(json['created_on']);
+    var createdOn = DateTime.fromMillisecondsSinceEpoch(json['created_on']);
 
     final changes = json['changes']
         ?.map((c) => _Changes.fromJson(c))
