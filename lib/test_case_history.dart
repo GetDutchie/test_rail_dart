@@ -106,10 +106,10 @@ class _Changes {
   _Changes({
     this.field,
     this.label,
-    this.oldText,
-    this.oldValue,
     this.newText,
     this.newValue,
+    this.oldText,
+    this.oldValue,
     this.options,
     this.typeId,
   });
@@ -118,10 +118,10 @@ class _Changes {
     return _Changes(
       field: json['field'],
       label: json['label'],
-      oldText: json['old_text'],
-      oldValue: json['old_value'],
       newText: json['new_text'],
       newValue: json['new_value'],
+      oldText: json['old_text'],
+      oldValue: json['old_value'],
       options: json['options'],
       typeId: json['type_id'],
     );
@@ -130,10 +130,10 @@ class _Changes {
   Map<String, dynamic> get asJson => {
         'field': field,
         if (label != null) 'label': label,
-        'old_text': oldText,
-        'old_value': oldValue,
         'new_text': newText,
         'new_value': newValue,
+        'old_text': oldText,
+        'old_value': oldValue,
         if (options != null) 'options': options,
         'type_id': typeId,
       };

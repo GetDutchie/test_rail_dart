@@ -4,7 +4,7 @@ import '__helpers__.dart';
 import 'data/sample_test_case.dart';
 
 void main() {
-  group('TestCase', () {
+  group('TestCaseHistory', () {
     test('.get', () async {
       stubTestRailConfig(sampleForTestCaseHistory);
       final result = await TestCaseHistory.get(1);
