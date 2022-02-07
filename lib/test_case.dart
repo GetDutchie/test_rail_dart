@@ -129,6 +129,23 @@ class TestCase {
     return TestCase.fromJson(response);
   }
 
+  static Future<SoftDeleteTestCase> delete(
+    int caseId, {
+    bool soft = false,
+  }) async {
+    final parametersMap = {
+      'soft': (soft == true) ? 1 : 0,
+    };
+
+    final response = await TestRail.instance.client.request(
+      '/delete_case/$caseId',
+      RequestMethod.post,
+      params: parametersMap,
+    );
+
+    return SoftDeleteTestCase.fromJson(response);
+  }
+
   static Future<TestCase> get(int caseId) async {
     final response = await TestRail.instance.client
         .request('/get_case/$caseId', RequestMethod.get);
@@ -234,5 +251,24 @@ class CustomStep {
         'expected': expected,
         'refs': refs,
         if (sharedStepId != null) 'shared_step_id': sharedStepId,
+      };
+}
+
+class SoftDeleteTestCase {
+  final int? tests;
+  final int? results;
+
+  SoftDeleteTestCase({
+    this.tests,
+    this.results,
+  });
+
+  factory SoftDeleteTestCase.fromJson(Map<String, dynamic> json) {
+    return SoftDeleteTestCase(tests: json['tests'], results: json['results']);
+  }
+
+  Map<String, dynamic> get asJson => {
+        if (tests != null) 'tests': tests,
+        if (results != null) 'results': results,
       };
 }

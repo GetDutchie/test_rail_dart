@@ -11,6 +11,18 @@ void main() {
       expect(result.asJson, sampleForNewTestCase);
     });
 
+    test('#delete', () async {
+      stubTestRailConfig({});
+      final result = await TestCase.delete(1);
+      expect(result.asJson, {});
+    });
+
+    test('#deleteSoft', () async {
+      stubTestRailConfig(sampleForSoftDeleteCase);
+      final result = await TestCase.delete(1, soft: true);
+      expect(result.asJson, sampleForSoftDeleteCase);
+    });
+
     test('#get', () async {
       stubTestRailConfig(sampleTestCase);
       final result = await TestCase.get(1);

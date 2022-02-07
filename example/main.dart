@@ -43,6 +43,12 @@ void main(List<String> args) async {
     projectId: 134,
   );
 
+  final softDeleteCase = await TestCase.delete(
+    1,
+    // Soft does not delete case, but show's involved resources
+    soft: true,
+  );
+
   final testCaseResult = await newRun.addResultForCase(
     testCase.id,
     // Status - 1: PASSED

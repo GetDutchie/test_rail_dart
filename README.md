@@ -96,6 +96,15 @@ final testResults = await TestResult.getTestResults(
 );
 ```
 
+### Delete
+```dart
+final deletedTestCase = await TestCase.delete(
+  1,
+  // Soft does not delete case, but show's involved resources
+  soft: true,
+);
+```
+
 ## About Dutchie
 
 We’re not just building the future of shopping for cannabis, we’re building a culture of innovation, customer care, and challenge to the status quo.

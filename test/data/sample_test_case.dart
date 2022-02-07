@@ -57,3 +57,5 @@ final sampleForNewTestCase = {
     ]
   }
 };
+
+final sampleForSoftDeleteCase = {'tests': 2, 'results': 0};
