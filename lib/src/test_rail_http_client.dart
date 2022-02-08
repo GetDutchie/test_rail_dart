@@ -22,7 +22,7 @@ class TestRailHttpClient {
     required this.username,
   }) : client = client ?? http.Client();
 
-  Future<Map<String, dynamic>> request(
+  Future<Map<String, dynamic>?> request(
     String endpoint,
     RequestMethod method, {
     Map<String, dynamic>? queryParameters,
@@ -78,6 +78,9 @@ class TestRailHttpClient {
         break;
     }
 
-    return jsonDecode(response.body);
+    if (response.body.isNotEmpty) {
+      return jsonDecode(response.body);
+    }
+    return null;
   }
 }

@@ -15,6 +15,9 @@ void main(List<String> args) async {
   // replace with your own caseId
   final testCase = await TestCase.get(142864);
 
+  // soft delete is possible which will not delete test case, see documentation for more details
+  await testCase.delete();
+
   final createdTestCase = await TestCase.create(
     // replace with your own sectionId
     1,
@@ -25,13 +28,16 @@ void main(List<String> args) async {
     },
   );
 
-  final testCases = await TestCase.getAll(9, limit: 1);
+  final testCases = await TestCase.getAll(
+    9,
+    limit: 1,
+  );
 
   // replace with your own projectId, extra parameters available in method
-  final testRuns = await TestRun.getAll(projectId: 1125, limit: 10);
-
-  // replace with your own projectId
-  final testRun = await TestRun.get(1125);
+  final testRuns = await TestRun.getAll(
+    projectId: 1125,
+    limit: 10,
+  );
 
   // replace with your own sectionId
   final section = await TestSection.get(13);
@@ -41,12 +47,6 @@ void main(List<String> args) async {
     name: 'newRun',
     // replace with your own projectId
     projectId: 134,
-  );
-
-  final softDeleteCase = await TestCase.delete(
-    1,
-    // Soft does not delete case, but show's involved resources
-    soft: true,
   );
 
   final testCaseResult = await newRun.addResultForCase(

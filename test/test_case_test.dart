@@ -12,15 +12,18 @@ void main() {
     });
 
     test('#delete', () async {
-      stubTestRailConfig({});
-      final result = await TestCase.delete(1);
-      expect(result.asJson, {});
+      stubTestRailConfig(sampleTestCase);
+      final testCase = await TestCase.get(25);
+      final result = await testCase.delete();
+      expect(result, null);
     });
 
-    test('#deleteSoft', () async {
+    test('#delete(soft: true)', () async {
+      stubTestRailConfig(sampleTestCase);
+      final testCase = await TestCase.get(25);
       stubTestRailConfig(sampleForSoftDeleteCase);
-      final result = await TestCase.delete(1, soft: true);
-      expect(result.asJson, sampleForSoftDeleteCase);
+      final result = await testCase.delete(soft: true);
+      expect(result?.asJson, sampleForSoftDeleteCase);
     });
 
     test('#get', () async {

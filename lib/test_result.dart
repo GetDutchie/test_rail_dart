@@ -73,7 +73,7 @@ class TestResult {
     final url = '/add_attachment_to_result/$id';
     final response = await TestRail.instance.client
         .request(url, RequestMethod.postMultipart, params: {'filePath': path});
-    return TestAttachment.fromJson(response);
+    return TestAttachment.fromJson(response!);
   }
 
   static Future<TestResults> getTestResults(
@@ -155,7 +155,7 @@ class TestResult {
         requestUrl, RequestMethod.get,
         queryParameters: queryParameters);
 
-    return TestResults.fromJson(response);
+    return TestResults.fromJson(response!);
   }
 
   Map<String, dynamic> get asJson => {
