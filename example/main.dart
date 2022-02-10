@@ -2,6 +2,7 @@
 import 'package:test_rail_dart/test_rail.dart';
 import 'package:test_rail_dart/test_case.dart';
 import 'package:test_rail_dart/test_case_history.dart';
+import 'package:test_rail_dart/test_result.dart';
 import 'package:test_rail_dart/test_run.dart';
 import 'package:test_rail_dart/test_section.dart';
 
@@ -47,6 +48,30 @@ void main(List<String> args) async {
     testCase.id,
     // Status - 1: PASSED
     statusId: 1,
+  );
+
+  await newRun.update(
+    caseIds: [1, 6, 7],
+    includeAll: false,
+  );
+
+  // Replace with attachment path
+  await testCaseResult.addAttachment('<attachment_path>');
+
+  final caseResults = await TestResult.getCaseResults(
+    // Case ID is from TestCases, not TestRun
+    184234,
+    runId: 1833,
+  );
+
+  final runResults = await TestResult.getRunResults(
+    1818,
+    statusId: [5, 1],
+  );
+
+  final testResults = await TestResult.getTestResults(
+    // Test ID from particular TestRun
+    1868150,
   );
 
   final testCaseHistory = await TestCaseHistory.get(1231);
