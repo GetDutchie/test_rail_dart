@@ -126,13 +126,33 @@ class TestCase {
       params: parametersMap,
     );
 
-    return TestCase.fromJson(response);
+    return TestCase.fromJson(response!);
+  }
+
+  Future<SoftDeleteTestCase?> delete({
+    bool soft = false,
+  }) async {
+    final parametersMap = {
+      'soft': soft ? 1 : 0,
+    };
+    final url = '/delete_case/$id';
+    final response = await TestRail.instance.client.request(
+      url,
+      RequestMethod.post,
+      params: parametersMap,
+    );
+
+    if (soft) {
+      return SoftDeleteTestCase.fromJson(response!);
+    }
+
+    return null;
   }
 
   static Future<TestCase> get(int caseId) async {
     final response = await TestRail.instance.client
         .request('/get_case/$caseId', RequestMethod.get);
-    return TestCase.fromJson(response);
+    return TestCase.fromJson(response!);
   }
 
   static Future<TestCases> getAll(
@@ -178,7 +198,7 @@ class TestCase {
       RequestMethod.get,
       queryParameters: queryParameters,
     );
-    return TestCases.fromJson(response);
+    return TestCases.fromJson(response!);
   }
 
   Map<String, dynamic> get asJson => {
@@ -204,15 +224,15 @@ class TestCase {
 }
 
 class CustomStep {
-  final String? content;
   final String? additionalInfo;
+  final String? content;
   final String? expected;
   final String? refs;
   final int? sharedStepId;
 
   CustomStep({
-    this.content,
     this.additionalInfo,
+    this.content,
     this.expected,
     this.refs,
     this.sharedStepId,
@@ -220,8 +240,8 @@ class CustomStep {
 
   factory CustomStep.fromJson(Map<String, dynamic> json) {
     return CustomStep(
-      content: json['content'],
       additionalInfo: json['additional_info'],
+      content: json['content'],
       expected: json['expected'],
       refs: json['refs'],
       sharedStepId: json['shared_step_id'],
@@ -229,10 +249,29 @@ class CustomStep {
   }
 
   Map<String, dynamic> get asJson => {
-        'content': content,
         'additional_info': additionalInfo,
+        'content': content,
         'expected': expected,
         'refs': refs,
         if (sharedStepId != null) 'shared_step_id': sharedStepId,
+      };
+}
+
+class SoftDeleteTestCase {
+  final int? results;
+  final int? tests;
+
+  SoftDeleteTestCase({
+    this.results,
+    this.tests,
+  });
+
+  factory SoftDeleteTestCase.fromJson(Map<String, dynamic> json) {
+    return SoftDeleteTestCase(tests: json['tests'], results: json['results']);
+  }
+
+  Map<String, dynamic> get asJson => {
+        'results': results,
+        'tests': tests,
       };
 }

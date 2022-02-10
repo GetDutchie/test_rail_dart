@@ -13,7 +13,7 @@ TestRail.config(
   username: 'USERNAME',
   password: 'PASSWORD',
   /// The url that points to the test rail server => https://example.testrail.com
-  serverDomain: 'https://YOUR_SERVER.testrail.com'
+  serverDomain: 'https://YOUR_SERVER.testrail.com',
 )
 ```
 
@@ -33,13 +33,21 @@ final createdTestCase = await TestCase.create(
 );
 ```
 
+### Delete Test case
+```dart
+/// Get TestCase by ID
+final testCase = await TestCase.get(1);
+
+await testCase.delete();
+```
+
 ### Create or Update Runs
 
 ```dart
 /// Start by creating a new run
 final newRun = await TestRun.create(
   name: 'Test execution',
-  projectId: 1
+  projectId: 1,
 );
 
 /// Add cases to the run
@@ -57,7 +65,7 @@ final result = await newRun.addResultForCase(
 );
 
 // Optionally add a screenshot or other image to the result
-await result.addAttachmentToResult(
+await result.addAttachment(
   '/workspace/attachments/failure.png',
 );
 ```
