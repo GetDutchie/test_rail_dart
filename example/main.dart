@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 import 'package:test_rail_dart/test_rail.dart';
 import 'package:test_rail_dart/test_case.dart';
+import 'package:test_rail_dart/test_case_history.dart';
 import 'package:test_rail_dart/test_result.dart';
 import 'package:test_rail_dart/test_run.dart';
 import 'package:test_rail_dart/test_section.dart';
@@ -78,4 +79,6 @@ void main(List<String> args) async {
     // Test ID from particular TestRun
     1868150,
   );
+
+  final testCaseHistory = await TestCaseHistory.get(1231);
 }
