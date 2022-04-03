@@ -1,5 +1,5 @@
 name: test_rail_dart
-description: This package is a thin wrapper around the Test Rail API that will allow for automated test reporting in dart
+description: This package is a thin wrapper around the TestRail API that will allow for automated test reporting in dart
 homepage: https://github.com/GetDutchie/test_rail_dart
 issue_tracker: https://github.com/GetDutchie/test_rail_dart/issues
 repository: https://github.com/GetDutchie/test_rail_dart

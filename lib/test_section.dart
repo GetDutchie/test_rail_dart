@@ -33,7 +33,7 @@ class TestSection {
   static Future<TestSection> get(int sectionId) async {
     final response = await TestRail.instance.client
         .request('/get_section/$sectionId', RequestMethod.get);
-    return TestSection.fromJson(response);
+    return TestSection.fromJson(response!);
   }
 
   Map<String, dynamic> get asJson => {

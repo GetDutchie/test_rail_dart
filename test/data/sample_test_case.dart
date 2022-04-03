@@ -119,3 +119,6 @@ final sampleForTestCaseHistory = {
     }
   ]
 };
+
+final sampleForSoftDeleteCase = {'tests': 2, 'results': 0};
+

@@ -136,13 +136,13 @@ class TestRun {
       },
     );
 
-    return TestResult.fromJson(response);
+    return TestResult.fromJson(response!);
   }
 
   Future<TestRun> close() async {
     final response = await TestRail.instance.client
         .request('/close_run/$id', RequestMethod.post);
-    return TestRun.fromJson(response);
+    return TestRun.fromJson(response!);
   }
 
   static Future<TestRun> create({
@@ -162,13 +162,13 @@ class TestRun {
         'name': name,
       },
     );
-    return TestRun.fromJson(response);
+    return TestRun.fromJson(response!);
   }
 
   static Future<TestRun> get(int runId) async {
     final response = await TestRail.instance.client
         .request('/get_run/$runId', RequestMethod.get);
-    return TestRun.fromJson(response);
+    return TestRun.fromJson(response!);
   }
 
   static Future<TestRuns> getAll({
@@ -203,7 +203,7 @@ class TestRun {
       queryParameters: queryParameters,
     );
 
-    return TestRuns.fromJson(response);
+    return TestRuns.fromJson(response!);
   }
 
   Future<TestRun> update({
@@ -218,7 +218,7 @@ class TestRun {
         'include_all': includeAll,
       },
     );
-    return TestRun.fromJson(response);
+    return TestRun.fromJson(response!);
   }
 
   Map<String, dynamic> get asJson => {
